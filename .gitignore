@@ -1,0 +1,18 @@
+# Node
+node_modules/
+dist/
+out/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Environment & Secrets
+.env
+*.pem
+
+# OS
+.DS_Store
+Thumbs.db

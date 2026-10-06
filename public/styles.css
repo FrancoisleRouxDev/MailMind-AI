@@ -1,0 +1,276 @@
+:root {
+    --bg-main: #0f172a;
+    --bg-sidebar: #1e293b;
+    --bg-card: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent: #38bdf8;
+    --accent-hover: #0284c7;
+    --border: #475569;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background: var(--bg-main);
+    color: var(--text-primary);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 320px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.brand h2 {
+    font-size: 1.4rem;
+    color: var(--accent);
+}
+
+.brand .badge {
+    font-size: 0.75rem;
+    background: rgba(56, 189, 248, 0.2);
+    color: var(--accent);
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.section h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+}
+
+input,
+select {
+    background: var(--bg-main);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #000;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+}
+
+.toggle-label {
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.topbar {
+    padding: 20px 30px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.feed {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.email-card {
+    background: var(--bg-card);
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid var(--border);
+}
+
+.email-card h3 {
+    color: var(--accent);
+    margin-bottom: 6px;
+}
+
+.email-card .sender {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.email-card .ai-body {
+    white-space: pre-wrap;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    border-radius: 6px;
+}
+
+.empty-state {
+    text-align: center;
+    margin-top: 100px;
+    color: var(--text-secondary);
+}
+
+/* Help Button & Input Group */
+.input-with-help {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.help-btn {
+    background: var(--border);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 6px;
+    width: 38px;
+    height: 38px;
+    font-weight: bold;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: 0.2s;
+}
+
+.help-btn:hover {
+    background: var(--accent);
+    color: #000;
+}
+
+/* Modal Overlay & Box */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+.modal-card {
+    background: var(--bg-sidebar);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    width: 440px;
+    max-width: 90%;
+    padding: 24px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+}
+
+.modal-header h3 {
+    font-size: 1.1rem;
+    color: var(--accent);
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: var(--text-primary);
+}
+
+.steps-list {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--text-primary);
+}
+
+.steps-list a {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.steps-list code {
+    background: var(--bg-main);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--accent);
+}
+
+.qr-container {
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border);
+}
+
+.qr-container p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.qr-container img {
+    border-radius: 8px;
+    border: 2px solid var(--border);
+}

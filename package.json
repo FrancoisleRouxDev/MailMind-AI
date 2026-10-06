@@ -1,0 +1,27 @@
+{
+    "name": "mailmind-ai",
+    "version": "1.0.0",
+    "description": "Privacy-first AI Email Assistant powered by Groq, NVIDIA NIM, and Gemini",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "py-server": "python backend/app.py",
+        "dev": "concurrently \"python backend/app.py\" \"electron .\"",
+        "build": "electron-builder"
+    },
+    "keywords": [
+        "ai",
+        "email",
+        "groq",
+        "nvidia-nim",
+        "gemini",
+        "electron"
+    ],
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "concurrently": "^8.2.2",
+        "electron": "^30.5.1",
+        "electron-builder": "^24.13.0"
+    }
+}

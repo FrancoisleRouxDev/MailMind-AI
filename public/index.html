@@ -1,0 +1,41 @@
+<!-- Inside the <aside class="sidebar"> under <div class="section"> -->
+<h3>IMAP Connection</h3>
+<input type="email" id="emailUser" placeholder="Email (e.g. user@gmail.com)" />
+
+<div class="input-with-help">
+    <input type="password" id="appPass" placeholder="App Password" />
+    <button type="button" id="btnHelpAppPass" class="help-btn" title="How to get an App Password">?</button>
+</div>
+
+<input type="text" id="imapServer" value="imap.gmail.com" placeholder="IMAP Server" />
+<button id="btnFetch" class="btn-primary">Fetch & Process Inbox</button>
+
+
+<!-- Add this right before </body> at the bottom of index.html -->
+<div id="appPassModal" class="modal-overlay hidden">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3>How to Get a Gmail App Password</h3>
+            <button id="btnCloseModal" class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <ol class="steps-list">
+                <li>Enable <strong>2-Step Verification</strong> on your Google Account if not already active.</li>
+                <li>Open <a href="https://myaccount.google.com/apppasswords" target="_blank"
+                        rel="noopener">myaccount.google.com/apppasswords</a> in your browser.</li>
+                <li>Type <code>MailMind AI</code> in the <strong>App name</strong> box and click
+                    <strong>Create</strong>.
+                </li>
+                <li>Copy the generated <strong>16-character passcode</strong> and paste it here.</li>
+            </ol>
+            <div class="section">
+                <h3>AI Engine Config</h3>
+                <select id="aiProvider">
+                    <option value="groq">Groq (Llama 3.3 70B)</option>
+                    <option value="nvidia">NVIDIA NIM (Llama 3.1 70B)</option>
+                    <option value="gemini">Google Gemini 2.5 Flash</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
