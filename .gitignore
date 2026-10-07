@@ -8,6 +8,7 @@ venv/
 __pycache__/
 *.pyc
 .pytest_cache/
+node_modules/
 
 # Environment & Secrets
 .env
@@ -16,3 +17,4 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+

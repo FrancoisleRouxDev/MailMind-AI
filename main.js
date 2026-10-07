@@ -2,6 +2,10 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const { spawn } = require('child_process');
 
+const venvPython = process.platform === 'win32'
+    ? path.join(__dirname, 'backend', 'venv', 'Scripts', 'python.exe')
+    : path.join(__dirname, 'backend', 'venv', 'bin', 'python');
+
 let mainWindow;
 let pyProc = null;
 

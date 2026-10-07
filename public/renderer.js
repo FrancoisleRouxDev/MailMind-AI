@@ -8,6 +8,7 @@ document.getElementById("btnFetch").addEventListener("click", async () => {
     const provider = document.getElementById("aiProvider").value;
     const redact_pii = document.getElementById("togglePII").checked;
 
+
     const statusEl = document.getElementById("statusIndicator");
     const feedEl = document.getElementById("resultsFeed");
 

@@ -1,33 +1,39 @@
-<!-- Inside the <aside class="sidebar"> under <div class="section"> -->
-<h3>IMAP Connection</h3>
-<input type="email" id="emailUser" placeholder="Email (e.g. user@gmail.com)" />
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="input-with-help">
-    <input type="password" id="appPass" placeholder="App Password" />
-    <button type="button" id="btnHelpAppPass" class="help-btn" title="How to get an App Password">?</button>
-</div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MailMind AI</title>
+    <!-- Fixed stylesheet name from style.css -> styles.css -->
+    <link rel="stylesheet" href="./styles.css" />
+</head>
 
-<input type="text" id="imapServer" value="imap.gmail.com" placeholder="IMAP Server" />
-<button id="btnFetch" class="btn-primary">Fetch & Process Inbox</button>
+<body>
+    <!-- Matched class to .app-container in styles.css -->
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <h2>MailMind AI <span class="badge">v1.0</span></h2>
+            </div>
 
+            <!-- Section 1: IMAP Settings -->
+            <div class="section">
+                <h3>IMAP Connection</h3>
+                <input type="email" id="emailUser" placeholder="Email (e.g. user@gmail.com)" />
 
-<!-- Add this right before </body> at the bottom of index.html -->
-<div id="appPassModal" class="modal-overlay hidden">
-    <div class="modal-card">
-        <div class="modal-header">
-            <h3>How to Get a Gmail App Password</h3>
-            <button id="btnCloseModal" class="close-btn">&times;</button>
-        </div>
-        <div class="modal-body">
-            <ol class="steps-list">
-                <li>Enable <strong>2-Step Verification</strong> on your Google Account if not already active.</li>
-                <li>Open <a href="https://myaccount.google.com/apppasswords" target="_blank"
-                        rel="noopener">myaccount.google.com/apppasswords</a> in your browser.</li>
-                <li>Type <code>MailMind AI</code> in the <strong>App name</strong> box and click
-                    <strong>Create</strong>.
-                </li>
-                <li>Copy the generated <strong>16-character passcode</strong> and paste it here.</li>
-            </ol>
+                <div class="input-with-help">
+                    <input type="password" id="appPass" placeholder="App Password" />
+                    <button type="button" id="btnHelpAppPass" class="help-btn"
+                        title="How to get an App Password">?</button>
+                </div>
+
+                <input type="text" id="imapServer" value="imap.gmail.com" placeholder="IMAP Server" />
+                <button id="btnFetch" class="btn-primary">Fetch & Process Inbox</button>
+            </div>
+
+            <!-- Section 2: AI Settings & Privacy -->
             <div class="section">
                 <h3>AI Engine Config</h3>
                 <select id="aiProvider">
@@ -35,7 +41,53 @@
                     <option value="nvidia">NVIDIA NIM (Llama 3.1 70B)</option>
                     <option value="gemini">Google Gemini 2.5 Flash</option>
                 </select>
+
+                <!-- Restored missing togglePII input required by renderer.js -->
+                <label class="toggle-label">
+                    <input type="checkbox" id="togglePII" checked />
+                    Redact PII (Privacy Guard)
+                </label>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Matched class to .topbar in styles.css -->
+            <header class="topbar">
+                <h1>Processed Emails</h1>
+                <!-- Restored missing statusIndicator span required by renderer.js -->
+                <span id="statusIndicator" style="font-size: 0.85rem; color: var(--text-secondary);">Ready</span>
+            </header>
+
+            <!-- Matched ID to resultsFeed and class to .feed for styles.css and renderer.js -->
+            <div id="resultsFeed" class="feed">
+                <div class="empty-state">No emails fetched yet. Click "Fetch & Process Inbox" to start.</div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Help Modal Overlay -->
+    <div id="appPassModal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>How to Get a Gmail App Password</h3>
+                <button id="btnCloseModal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <ol class="steps-list">
+                    <li>Enable <strong>2-Step Verification</strong> on your Google Account if not already active.</li>
+                    <li>Open <a href="https://myaccount.google.com/apppasswords" target="_blank"
+                            rel="noopener">myaccount.google.com/apppasswords</a> in your browser.</li>
+                    <li>Type <code>MailMind AI</code> in the <strong>App name</strong> box and click
+                        <strong>Create</strong>.
+                    </li>
+                    <li>Copy the generated <strong>16-character passcode</strong> and paste it here.</li>
+                </ol>
             </div>
         </div>
     </div>
-</div>
+
+    <script src="./renderer.js"></script>
+</body>
+
+</html>
